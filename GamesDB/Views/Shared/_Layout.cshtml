@@ -11,6 +11,23 @@
 	<header>
 		<div class="container">
 			@Html.ActionLink("GamesDB", "", null, new { @id = "logo" })
+			<div id="searchPanel">
+				<input type="text" id="searchField" placeholder="Search" />
+				<button id="searchButton">Go!</button>
+			</div>
+			<div id="login">
+				<a id="loginTrigger" href="#">
+					Log in
+				</a>
+				<div id="loginForm">
+					<div id="loggedUser"></div>
+					<div id="inputs">
+						<input id="userName" typ="text" placeholder="Email" />
+						<input id="password" type="Password" placeholder="Password" />
+						<button id="loginButton" value="Log in">Log in </button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</header>
 

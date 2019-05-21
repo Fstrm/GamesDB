@@ -1,0 +1,110 @@
+﻿body {
+	margin: 0;
+	font-weight: 300;
+}
+
+.container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+header {
+	background: #222629;
+}
+
+	header::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+#logo {
+	overflow: hidden;
+	margin: 0 20px 0 0;
+	padding: 7px;
+	color: white;
+	float: left;
+	text-decoration: none;
+}
+
+#searchPanel {
+	display: inline-block;
+	float: left;
+}
+
+	#searchPanel input {
+		margin-top: 7px;
+		margin-bottom: 6px;
+		padding: 3px;
+		font-style: italic;
+	}
+
+	#searchPanel button {
+		width: 30px;
+		height: 28px;
+		padding: 3px;
+	}
+
+#login {
+	float: right;
+	display: inline-block;
+	width: 200px;
+}
+
+#loginBlock {
+	padding: 10px;
+	margin: 0 10px 0 10px;
+	max-width: 100px;
+	max-height: 100px;
+	background-color: white;
+}
+
+#loginTrigger {
+	display: inline-block;
+	height: 27px;
+	line-height: 25px;
+	font-weight: bold;
+	padding: 5px 8px;
+	text-decoration: none;
+	background: #262626;
+	color: #FF652F;
+}
+
+#loginForm {
+	display: none;
+	position: absolute;
+	z-index: 999;
+	background: #262626;
+	background-image: linear-gradient(top, #fff, #eee);
+	padding: 20px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 1.9);
+	width: 180px;
+}
+
+#loggedUser {
+	display: none;
+	color: red;
+}
+
+#inputs {
+	padding: 10px;
+	border: 2px solid #FF652F;
+}
+
+input {
+	width: 150px;
+	font-style: italic;
+}
+
+#password {
+	margin-top: 5px;
+}
+
+#submit {
+	background: white;
+	margin: 9px 0 0 50px;
+}
+
+#loginTrigger:hover {
+	background-color: white;
+}
