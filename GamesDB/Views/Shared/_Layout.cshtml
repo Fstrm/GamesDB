@@ -15,25 +15,48 @@
 				<input type="text" id="searchField" placeholder="Search" />
 				<button id="searchButton">Go!</button>
 			</div>
-			<div id="login">
-				<a id="loginTrigger" href="#">
-					Log in
-				</a>
-				<div id="loginForm">
-					<div id="loggedUser"></div>
-					<div id="inputs">
-						<input id="userName" typ="text" placeholder="Email" />
-						<input id="password" type="Password" placeholder="Password" />
-						<button id="loginButton" value="Log in">Log in </button>
+			
+			<div id="auth">
+				<div id="login">
+					<a class="trigger" id="loginTrigger" href="#">
+						Log in
+					</a>
+					<div id="loginForm">
+						<div id="loggedUser"></div>
+						<div id="loginInputs">
+							<input id="loginUserName" type="text" placeholder="Name" />
+							<input id="password" type="Password" placeholder="Password" />
+							<button id="loginButton" value="Log in">Log in </button>
+						</div>
 					</div>
+				</div>
+
+				<div id="signUp">
+					<a class="trigger" id="signUpTrigger" href="#">
+						Sign Up
+					</a>
 				</div>
 			</div>
 		</div>
 	</header>
 
+	<div id="signUpModal">
+		<div id="errorBlock"></div>
+		<div id="signUpForm">
+			<div id="signUpInputs">
+				<input id="signupUserName" type="text" placeholder="Name" /> <br />
+				<input id="signupPassword" type="password" placeholder="Password" /> <br />
+				<input id="confirmPassword" type="password" placeholder="Confirm Password" /> <br />
+				<button id="signUpButton">Sign Up</button>
+				<a id="back">Back</a>
+			</div>
+		</div>
+	</div>
+
 	@RenderBody()
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
+	<script src="~/Scripts/auth.js"></script>
 </body>
 </html>

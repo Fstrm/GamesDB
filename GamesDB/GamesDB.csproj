@@ -151,6 +151,7 @@
     <Compile Include="Models\GameContext.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\Mark.cs" />
     <Compile Include="Models\Platform.cs" />
     <Compile Include="Models\SearchCriteria.cs" />
     <Compile Include="Models\Token.cs" />
@@ -167,6 +168,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\auth.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -192,6 +194,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Games\ModalLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

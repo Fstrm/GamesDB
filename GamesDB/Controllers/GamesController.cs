@@ -31,5 +31,10 @@ namespace GamesDB.Controllers
 			}
 			return View(game);
 		}
+
+		public ActionResult ModalLogin()
+		{
+			return View();
+		}
 	}
 }
