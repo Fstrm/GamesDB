@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GamesDB.Models;
+using GamesDB.Filters;
 
 namespace GamesDB.Controllers
 {
@@ -13,7 +14,7 @@ namespace GamesDB.Controllers
 
 		public ActionResult Index()
 		{
-			return View();
+			return View(db.Users);
 		}
 
 		public ActionResult Game(int? id)
@@ -30,11 +31,6 @@ namespace GamesDB.Controllers
 				return HttpNotFound();
 			}
 			return View(game);
-		}
-
-		public ActionResult ModalLogin()
-		{
-			return View();
 		}
 	}
 }

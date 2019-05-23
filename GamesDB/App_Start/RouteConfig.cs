@@ -14,7 +14,7 @@ namespace GamesDB
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
-				name: "Default",
+				name: "Game",
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Games", action = "Index", id = UrlParameter.Optional }
 			);

@@ -25,14 +25,14 @@
 						<div id="loggedUser"></div>
 						<div id="loginInputs">
 							<input id="loginUserName" type="text" placeholder="Name" />
-							<input id="password" type="Password" placeholder="Password" />
+							<input id="loginPassword" type="Password" placeholder="Password" />
 							<button id="loginButton" value="Log in">Log in </button>
 						</div>
 					</div>
 				</div>
 
-				<div id="signUp">
-					<a class="trigger" id="signUpTrigger" href="#">
+				<div id="signup">
+					<a class="trigger" id="signupTrigger" href="#">
 						Sign Up
 					</a>
 				</div>
@@ -40,14 +40,15 @@
 		</div>
 	</header>
 
-	<div id="signUpModal">
-		<div id="errorBlock"></div>
-		<div id="signUpForm">
-			<div id="signUpInputs">
+	<div id="signupModal">
+		<div id="signupForm">
+			
+			<div id="signupInputs">
+				<div id="errorBlock"></div>
 				<input id="signupUserName" type="text" placeholder="Name" /> <br />
 				<input id="signupPassword" type="password" placeholder="Password" /> <br />
 				<input id="confirmPassword" type="password" placeholder="Confirm Password" /> <br />
-				<button id="signUpButton">Sign Up</button>
+				<button id="signupButton">Sign Up</button>
 				<a id="back">Back</a>
 			</div>
 		</div>
@@ -58,5 +59,12 @@
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
 	<script src="~/Scripts/auth.js"></script>
+	<script type="text/javascript">
+		$(document).ready(() => {
+			$("#test").click(function () {
+
+			});
+		});
+	</script>
 </body>
 </html>

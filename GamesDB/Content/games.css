@@ -46,7 +46,7 @@ header::after {
 }
 
 #login,
-#signUp {
+#signup {
 	display: inline-block;
 }
 
@@ -56,7 +56,7 @@ header::after {
 
 /*anchors*/
 #loginTrigger,
-#signUpTrigger {
+#signupTrigger {
 	display: inline-block;
 	height: 27px;
 	line-height: 25px;
@@ -99,7 +99,7 @@ header::after {
 	color: red;
 }
 
-#signUpModal {
+#signupModal {
 	top: 0;
 	left: 0;
 	position: fixed;
@@ -109,7 +109,12 @@ header::after {
 	display: none;
 }
 
-#signUpForm {
+#errorBlock {
+	color: red;
+	font-size: 16px;
+}
+
+#signupForm {
 	margin-top: 20%;
 	margin-left: auto;
 	margin-right: auto;
@@ -124,7 +129,7 @@ header::after {
 	border: 2px solid #FF652F;
 }
 
-#signUpInputs
+#signupInputs
 {
 	top: 0;
 	right: 0;
@@ -154,6 +159,6 @@ input {
 /**/
 
 #loginTrigger:hover,
-#signUpTrigger:hover{
+#signupTrigger:hover{
 	background-color: white;
 }

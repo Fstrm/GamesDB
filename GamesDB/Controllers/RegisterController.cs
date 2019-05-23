@@ -11,16 +11,16 @@ namespace GamesDB.Controllers
     public class RegisterController : ApiController
     {
 		private GameContext db = new GameContext();
-
-		public string GetToken(string login, string password)
+		
+		public string GetToken(string username, string password)
 		{
-			if (!(String.IsNullOrEmpty(login) && login.All(char.IsDigit)) && !String.IsNullOrEmpty(password))
+			if (!(String.IsNullOrEmpty(username) && username.All(char.IsDigit)) && !String.IsNullOrEmpty(password))
 			{
-				if (!db.Users.Any(u => u.Username == login))
+				if (!db.Users.Any(u => u.Username == username))
 				{
 					User user = new User
 					{
-						Username = login,
+						Username = username,
 						Password = password,
 						Token = Token.CreateNew()
 					};
