@@ -14,7 +14,7 @@ namespace GamesDB.Controllers
 
 		public ActionResult Index()
 		{
-			return View(db.Users);
+			return View();
 		}
 
 		public ActionResult Game(int? id)

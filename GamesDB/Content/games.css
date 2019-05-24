@@ -99,7 +99,7 @@ header::after {
 	color: red;
 }
 
-#signupModal {
+#signupModal{
 	top: 0;
 	left: 0;
 	position: fixed;
