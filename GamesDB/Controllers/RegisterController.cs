@@ -22,7 +22,8 @@ namespace GamesDB.Controllers
 					{
 						Username = username,
 						Password = password,
-						Token = Token.CreateNew()
+						Token = Token.CreateNew(),
+						IsAdmin = Request.IsLocal() && db.Users.Count() == 0
 					};
 
 					db.Users.Add(user);

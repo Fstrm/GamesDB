@@ -3,6 +3,12 @@
 		SetName();
 		$("#signupModal").remove();
 	}
+	else {
+		if (localStorage.getItem("user") != null)
+			localStorage.removeItem("user");
+		if (localStorage.getItem("token") != null)
+			localStorage.removeItem("token");
+	}
 });
 
 $("#loginTrigger").click(function () {

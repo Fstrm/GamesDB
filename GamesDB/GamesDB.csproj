@@ -146,12 +146,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameContext.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\Mark.cs" />
     <Compile Include="Models\Platform.cs" />
     <Compile Include="Models\SearchCriteria.cs" />

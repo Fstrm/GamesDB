@@ -2,7 +2,7 @@
 
 namespace GamesDB.Models
 {
-	public class User : IUser
+	public class User
 	{
 		public int Id { get; set; }
 
@@ -13,5 +13,7 @@ namespace GamesDB.Models
 
 		[Required(AllowEmptyStrings = false)]
 		public string Password { get; set; }
+
+		public bool IsAdmin { get; set; }
 	}
 }
