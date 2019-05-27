@@ -72,7 +72,6 @@ $("#loginButton").click(function () {
 		success: function (data) {
 			localStorage.setItem("token", data);
 			localStorage.setItem("user", user.login);
-			alert("received token: " + localStorage["token"]);
 			$("#loginForm").toggle();
 			$("#signup").hide();
 			$("signupModal").remove();

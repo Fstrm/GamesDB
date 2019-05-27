@@ -11,10 +11,10 @@ namespace GamesDB.Controllers
 	public class GamesController : Controller
 	{
 		private GameContext db = new GameContext();
-
+		
 		public ActionResult Index()
 		{
-			return View(db.Users);
+			return View();
 		}
 
 		public ActionResult Game(int? id)

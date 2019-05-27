@@ -15,10 +15,7 @@ namespace GamesDB.Controllers
 		{
 			if (!String.IsNullOrEmpty(login) && !String.IsNullOrEmpty(password))
 			{
-				string token = db.Users.FirstOrDefault(u => u.Username == login && u.Password == password)?.Token;
-				//var response = Request.CreateResponse();
-				//response.Headers.Add("Token", token);
-				return token;
+				return db.Users.FirstOrDefault(u => u.Username == login && u.Password == password)?.Token;
 			}
 			return null;
 		}
