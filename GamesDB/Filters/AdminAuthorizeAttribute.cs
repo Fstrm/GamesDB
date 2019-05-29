@@ -17,6 +17,12 @@ namespace GamesDB.Filters
 		public Task<HttpResponseMessage> ExecuteAuthorizationFilterAsync(HttpActionContext actionContext, CancellationToken cancellationToken, Func<Task<HttpResponseMessage>> continuation)
 		{
 			string token = actionContext.Request.Headers.GetValues("Auth").FirstOrDefault();
+			Validator val = new AdminValidator(token);
+			if (val.IsCorrect())
+			{
+				return continuation();
+			}
+			return Task.FromResult(actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Unauthorized));
 		}
 	}
 }

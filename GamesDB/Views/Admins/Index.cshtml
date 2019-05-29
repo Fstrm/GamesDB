@@ -1,6 +1,75 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@section styles {
+	<link href="~/Content/create-page.css"  rel="stylesheet"/>
 }
 
-<h2>Index</h2>
+	<div id="creationPanel">
+		<div>
+			<label>Title:</label>
+			<div class="typehead">
+				<input id="title" class="inner-input" type="text" />
+			</div>
+		</div>
 
+		<div>
+			<label>Picture (link):</label><br />
+			<div class="typehead">
+				<input id="picture" class="inner-input" type="text" />
+			</div>
+		</div>
+
+		<div>
+			<label>Developer:</label>
+			<div class="typehead">
+				<input id="developer" class="inner-input" type="text" />
+			</div>
+		</div>
+
+		<div>
+			<label>Release Date</label>
+			<input id="date" class="datepicker" type="date" />
+		</div>
+
+		<table>
+			<tr>
+				<td width="105"><label>Genres</label></td>
+				<td>
+					<select id="genres" multiple="" size="1">
+						@foreach (var genre in ViewBag.Genres)
+						{
+							<option>@genre.Name</option>
+						}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td width="105"><label>Platforms</label></td>
+				<td>
+					<select id="platforms" multiple="" size="1">
+						@foreach (var platform in ViewBag.Platforms)
+						{
+							<option>@platform.Name</option>
+						}
+					</select>
+				</td>
+			</tr>
+		</table>
+
+		<input type="submit" value="Создать" />
+</div>
+
+@section scripts {
+	<script type="text/javascript">
+		$(".typehead").click(function () {
+			$(this).find("input").focus();
+		});
+		$(".inner-input").focus(function () {
+			$(this).parent().css('border-color', 'green');
+		});
+		$(".inner-input").focusout(function () {
+			if ($(this).val() == '')
+				$(this).parent().css('border-color', 'red');
+			else
+				$(this).parent().css('border-color', 'black');
+		});
+	</script>
+}

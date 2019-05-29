@@ -1,0 +1,33 @@
+﻿label {
+	display: inline-block;
+	max-width: 100%;
+	font-weight: bold;
+}
+
+select {
+	width: 155px;
+	margin-bottom: 10px;
+}
+
+
+#date {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+#creationPanel {
+	padding: 10px;
+}
+
+.typehead {
+	border: 2px black solid;
+	width: 350px;
+	padding: 5px;
+	border-radius: 5px;
+	margin-bottom: 25px;
+}
+
+.inner-input {
+	border:none;
+	width: 99%;
+}

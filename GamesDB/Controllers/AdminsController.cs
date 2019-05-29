@@ -13,7 +13,9 @@ namespace GamesDB.Controllers
 
         public ActionResult Index()
         {
-            return View();
+			ViewBag.Genres = db.Genres.ToList();
+			ViewBag.Platforms = db.Platforms.ToList();
+            return View(db.Games);
         }
     }
 }

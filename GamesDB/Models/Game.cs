@@ -11,7 +11,7 @@ namespace GamesDB.Models
 		public int Id { get; set; }
 
 		[Required(AllowEmptyStrings = false)]
-		public string Name { get; set; }
+		public string Title { get; set; }
 
 		[Required]
 		public Developer Developer { get; set; }

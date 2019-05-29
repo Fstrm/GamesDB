@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 	<title>@ViewBag.Title</title>
-	<link href="~/Content/games.css" rel="stylesheet" />
+	<link href="~/Content/layout.css" rel="stylesheet" />
 </head>
 <body>
 	<header>
@@ -52,11 +52,12 @@
 				</div>
 			</div>
 		</div>
+		@RenderBody()
 	</div>
-	@RenderBody()
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
+	@RenderSection("styles", required: false)
 	<script src="~/Scripts/auth.js"></script>
 </body>
 </html>
