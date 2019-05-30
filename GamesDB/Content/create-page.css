@@ -1,4 +1,8 @@
-﻿label {
+﻿div {
+	max-width: 400px;
+}
+
+label {
 	display: inline-block;
 	max-width: 100%;
 	font-weight: bold;
@@ -9,14 +13,23 @@ select {
 	margin-bottom: 10px;
 }
 
+button {
+	width: 90px;
+	margin-top: 10px;
+}
 
 #date {
 	margin-left: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 #creationPanel {
 	padding: 10px;
+}
+
+#create-button {
+	float: right;
+	margin-right: 20px;
 }
 
 .typehead {

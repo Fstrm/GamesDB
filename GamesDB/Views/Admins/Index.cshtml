@@ -31,9 +31,9 @@
 
 		<table>
 			<tr>
-				<td width="105"><label>Genres</label></td>
+				<td valign="top" width="105"><label>Genres</label></td>
 				<td>
-					<select id="genres" multiple="" size="1">
+					<select id="genres" class="chosen" multiple="" size="1">
 						@foreach (var genre in ViewBag.Genres)
 						{
 							<option>@genre.Name</option>
@@ -42,9 +42,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="105"><label>Platforms</label></td>
+				<td valign="top" width="105"><label>Platforms</label></td>
 				<td>
-					<select id="platforms" multiple="" size="1">
+					<select id="platforms" class="chosen" multiple="" size="1">
 						@foreach (var platform in ViewBag.Platforms)
 						{
 							<option>@platform.Name</option>
@@ -54,22 +54,82 @@
 			</tr>
 		</table>
 
-		<input type="submit" value="Создать" />
+		<div>
+			<button id="cancel-button">Cancel</button>
+			<button id="create-button">Confirm</button>
+		</div>
 </div>
-
 @section scripts {
 	<script type="text/javascript">
-		$(".typehead").click(function () {
-			$(this).find("input").focus();
+		$(document).ready(function () {
+			$(".typehead").click(function () {
+				$(this).find("input").focus();
+			});
+
+			$(".chosen").focus(function () {
+				$(this).attr("size", $(this).children("option").length);
+			});
+
+			$(".chosen").focusout(function () {
+				$(this).attr("size", "1");
+			});
+
+			$(".inner-input").focus(function () {
+				$(this).parent().css('border-color', 'green');
+			});
+
+			$(".inner-input").focusout(function () {
+				if ($(this).val() == '')
+					$(this).parent().css('border-color', 'red');
+				else
+					$(this).parent().css('border-color', 'black');
+			});
 		});
-		$(".inner-input").focus(function () {
-			$(this).parent().css('border-color', 'green');
+
+		$("#create-button").click(function () {
+			var game = new Game();
+			game.Initialize();
+
+			$.ajax({
+				url: 'api/edit',
+				type: 'post',
+				data: game.ToJson(),
+				succes: function (data) {
+					console.log(data);
+				},
+				error: function (data) {
+					console.log(data);
+				}
+			});
 		});
-		$(".inner-input").focusout(function () {
-			if ($(this).val() == '')
-				$(this).parent().css('border-color', 'red');
-			else
-				$(this).parent().css('border-color', 'black');
-		});
+
+		function Game(title, picture, date, genres, platforms) {
+			this.title = title;
+			this.picture = picture;
+			this.date = date;
+			this.genres = genres;
+			this.platforms = platforms;
+			this.ToJson = function () {
+				return JSON.stringify(this);
+			}
+		}
+
+		Game.prototype.Initialize = function () {
+			this.title = $("#title").val();
+			this.picture = $("#picture").val();
+			this.date = new Date($("#date").val());
+
+			var genres = []
+			$("#genres").children("option:selected").each(function () {
+				genres.push(this.value);
+			});
+			this.genres = genres;
+
+			var platforms = [];
+			$("#platforms").children("option:selected").each(function () {
+				platforms.push(this.value);
+			});
+			this.platforms = platforms;
+		}
 	</script>
 }

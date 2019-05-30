@@ -10,9 +10,12 @@ namespace GamesDB.Models
 	{
 		protected override void Seed(GameContext context)
 		{
-			context.Genres.Add(new Genre { Name = "Action" });
+			context.Genres.Add(new Genre { Name = "Strategy" });
+			context.Genres.Add(new Genre { Name = "Platform" });
 			context.Genres.Add(new Genre { Name = "Shooter" });
 			context.Genres.Add(new Genre { Name = "RPG"});
+			context.Genres.Add(new Genre { Name = "Adventure" });
+			context.Genres.Add(new Genre { Name = "Racing" });
 
 			context.Platforms.Add(new Platform { Name = "PC" });
 			context.Platforms.Add(new Platform { Name = "Playstation" });
