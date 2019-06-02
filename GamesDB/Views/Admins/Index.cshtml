@@ -26,7 +26,7 @@
 
 		<div>
 			<label>Release Date</label>
-			<input id="date" class="datepicker" type="date" />
+			<input id="date" type="date" />
 		</div>
 
 		<table>
@@ -36,7 +36,7 @@
 					<select id="genres" class="chosen" multiple="" size="1">
 						@foreach (var genre in ViewBag.Genres)
 						{
-							<option>@genre.Name</option>
+							<option data-id="@genre.Id">@genre.Name</option>
 						}
 					</select>
 				</td>
@@ -47,7 +47,7 @@
 					<select id="platforms" class="chosen" multiple="" size="1">
 						@foreach (var platform in ViewBag.Platforms)
 						{
-							<option>@platform.Name</option>
+							<option data-id="@platform.Id">@platform.Name</option>
 						}
 					</select>
 				</td>
@@ -91,9 +91,10 @@
 			game.Initialize();
 
 			$.ajax({
-				url: 'api/edit',
-				type: 'post',
-				data: game.ToJson(),
+				url: '/api/edit/',
+				type: "post",
+				data: JSON.stringify(game),
+				contentType: "application/json;charset=utf-8",
 				succes: function (data) {
 					console.log(data);
 				},
@@ -103,31 +104,34 @@
 			});
 		});
 
-		function Game(title, picture, date, genres, platforms) {
+		function Game(title, picture, developer, date, genres, platforms) {
 			this.title = title;
 			this.picture = picture;
-			this.date = date;
+			this.developer = developer;
+			this.releasedate = date;
 			this.genres = genres;
 			this.platforms = platforms;
-			this.ToJson = function () {
-				return JSON.stringify(this);
-			}
+		}
+
+		this.ToJson = function () {
+			return JSON.stringify(this);
 		}
 
 		Game.prototype.Initialize = function () {
 			this.title = $("#title").val();
 			this.picture = $("#picture").val();
-			this.date = new Date($("#date").val());
-
+			this.developer = { "Id": "", "Name": $("#developer").val() }
+			this.releasedate = $("#date").val();
 			var genres = []
 			$("#genres").children("option:selected").each(function () {
-				genres.push(this.value);
+				genres.push({ "Id": $(this).attr("data-id"), "Name": this.value });
 			});
+			console.log(genres);
 			this.genres = genres;
 
 			var platforms = [];
 			$("#platforms").children("option:selected").each(function () {
-				platforms.push(this.value);
+				platforms.push({ "Id": $(this).attr("data-id"), "Name": this.value });
 			});
 			this.platforms = platforms;
 		}

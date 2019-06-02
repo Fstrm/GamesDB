@@ -20,7 +20,7 @@ namespace GamesDB.Models
 			context.Platforms.Add(new Platform { Name = "PC" });
 			context.Platforms.Add(new Platform { Name = "Playstation" });
 			context.Platforms.Add(new Platform { Name = "Xbox" });
-			
+
 			base.Seed(context);
 		}
 	}
