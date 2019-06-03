@@ -16,7 +16,5 @@ namespace GamesDB.Models
 		public int Score { get; set; }
 
 		public virtual User User { get; set; }
-
-		public virtual Game Game { get; set; }
 	}
 }

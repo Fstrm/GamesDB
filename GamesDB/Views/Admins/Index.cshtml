@@ -113,10 +113,6 @@
 			this.platforms = platforms;
 		}
 
-		this.ToJson = function () {
-			return JSON.stringify(this);
-		}
-
 		Game.prototype.Initialize = function () {
 			this.title = $("#title").val();
 			this.picture = $("#picture").val();

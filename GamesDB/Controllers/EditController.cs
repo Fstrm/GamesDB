@@ -16,11 +16,6 @@ namespace GamesDB.Controllers
 		[HttpPost]
 		public void CreateGame([FromBody]Game game)
 		{
-			if(db.Developers.Any(d => d.Name == game.Developer.Name))
-			{
-				db.Entry(game.Developer).State = EntityState.Unchanged;
-			}
-
 			foreach (var g in game.Genres)
 			{
 				db.Entry(g).State = EntityState.Unchanged;

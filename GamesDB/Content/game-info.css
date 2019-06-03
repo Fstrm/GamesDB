@@ -1,0 +1,46 @@
+﻿.info {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
+ul li {
+	display: inline;
+}
+
+#title {
+	margin-top: 5%;
+	text-align: center;
+	font-size: 30px;
+}
+
+.game div {
+	display: inline-block;
+}
+
+.gameInfo {
+	margin-left: 5%;
+}
+
+#pic {
+	width: 200px;
+}
+
+#game-id {
+	visibility: hidden;
+}
+
+#score {
+	font-size: 20px;
+}
+
+.ratesection {
+	vertical-align: top;
+	margin-left: 10%;
+	margin-top: 1%;
+	float: right;
+}
+
+input[type="button"] {
+	width: 40px;
+}

@@ -8,16 +8,16 @@ using GamesDB.Filters;
 
 namespace GamesDB.Controllers
 {
-	public class GamesController : Controller
+	public class Games : Controller
 	{
 		private GameContext db = new GameContext();
 		
 		public ActionResult Index()
 		{
-			return View(db.Games.Include("Developer").ToList());
+			return View(db.Games);
 		}
 
-		public ActionResult Subject(int? id)
+		public ActionResult Game(int? id)
 		{
 			if (id == null)
 			{
@@ -25,13 +25,11 @@ namespace GamesDB.Controllers
 			}
 
 			Game game = db.Games.Find(id);
-			db.Entry(game).Reference("Developer").Load();
 
 			if (game == null)
 			{
 				return HttpNotFound();
 			}
-
 			return View(game);
 		}
 	}

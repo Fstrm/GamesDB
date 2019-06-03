@@ -4,46 +4,9 @@
     ViewBag.Title = Model.Title;
 }
 
-<style>
-	.info {
-		margin: auto;
-		width: 60%;
-		padding: 10px;
-	}
-
-	#title {
-		margin-top: 5%;
-		text-align: center;
-		font-size: 30px;
-	}
-	
-	.game div {
-		display: inline-block;
-	}
-
-	.gameInfo {
-		margin-left: 5%;
-		vertical-align: top;
-	}
-
-	#pic {
-		width: 200px;
-	}
-
-	.ratesection {
-		vertical-align: top;
-		margin-left: 10%;
-	}
-
-	input[type="text"] {
-		width: 100px;
-	}
-
-	input[type="button"] {
-		width: 40px;
-	}
-
-</style>
+@section styles {
+	<link href="~/Content/game-info.css" rel="stylesheet" />
+}
 
 <div class="info">
 	<p id="title">@Model.Title</p>
@@ -52,7 +15,9 @@
 			<img src="asd" id="pic" />
 		</div>
 		<div class="gameInfo">
+			<input id="game-id" type="hidden" value="@Model.Id" />
 			<p>@Model.ReleaseDate.ToLongDateString()</p>
+			<p>@Model.Developer.Name</p>
 			<p>
 				<label>Genres</label>
 				<ul>
@@ -73,25 +38,65 @@
 			</p>
 		</div>
 		<div class="ratesection">
-			<label>Rate this game: </label> <br />
-			<input id="mark" type="text" />
-			<input id="mark-confirmation" type="button" value="Ok" />
+			<label>Average score:</label>
+			<p id="score"></p>
+			<input id="score-hidden" type="hidden" value="@Model.Score" />
+			<br />
+			<div id="user-mark">
+				<label>Rate this game: </label> <br />
+				<input id="mark" type="text" />
+				<input id="mark-confirmation" type="button" value="Ok" />
+			</div>
 		</div>
 	</div>
 </div>
 
 @section scripts {
 	<script type="text/javascript">
+		$(document).ready(function () {
+			refreshScore();
+		});
+
+		function refreshScore() {
+			$score = $("#score");
+			var value = Number.parseInt($("#score-hidden").val());
+			if (value == 0) {
+				$score.text("N/A");
+				console.log($score.val());
+			}
+			else {
+				$score.text(value);
+				value > 5 ? $score.css("color", "green") : $score.css("color", "red");
+			}
+		}
+
 		$("#mark-confirmation").click(function () {
 			$mark = $("#mark").val();
 
 			if (Number.isInteger(parseInt($mark))) {
-				if ($mark < 0 || $mark > 10)
+				if ($mark => 0 && $mark <= 10) {
+					$.ajax({
+						url: "/api/user?gameid=" + $("#game-id").val() + "&user=" + localStorage["user"] + "&userScore=" + $mark,
+						type: "PUT",
+						contentType: "application/json;charset=utf-8",
+						success: function (data) {
+							alert("Your mark has been submitted");
+							$("#user-mark").css("display", "hidden");
+							$("#score-hidden").val(data);
+							refreshScore();
+						},
+						error: function (data) {
+							alert("Something went wrong, please try again later");
+							console.log(data);
+						}
+					});
+				}
+				else
 					alert("Mark should be between 0 and 10");
 			}
 			else {
-				alert("Incorrect value (should be a number)");
+				alert("Incorrect value (number expected)");
 			}
-		})
+		});
 	</script>
 }

@@ -23,9 +23,9 @@ namespace GamesDB.Models
 
 		public string Picture { get; set; }
 
-		public int? Score { get; set; }
+		public int Score { get; set; } = 0;
 
-		public int? VoiceCounter { get; set; }
+		public int VoiceCounter { get; set; } = 0;
 		
 		public virtual ICollection<Genre> Genres { get; set; }
 		
