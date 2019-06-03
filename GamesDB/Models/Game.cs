@@ -19,7 +19,7 @@ namespace GamesDB.Models
 		public Developer Developer { get; set; }
 		
 		[Required(AllowEmptyStrings = false)]
-		public DateTime? ReleaseDate { get; set; }
+		public DateTime ReleaseDate { get; set; }
 
 		public string Picture { get; set; }
 

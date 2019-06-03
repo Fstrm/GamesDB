@@ -14,10 +14,10 @@ namespace GamesDB.Controllers
 		
 		public ActionResult Index()
 		{
-			return View();
+			return View(db.Games.ToList());
 		}
 
-		public ActionResult Game(int? id)
+		public ActionResult Subject(int? id)
 		{
 			if (id == null)
 			{
@@ -30,6 +30,7 @@ namespace GamesDB.Controllers
 			{
 				return HttpNotFound();
 			}
+
 			return View(game);
 		}
 	}

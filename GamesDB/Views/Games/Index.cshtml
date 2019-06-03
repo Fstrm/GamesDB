@@ -1,1 +1,16 @@
-﻿
+﻿@using GamesDB.Models
+@model IEnumerable<Game>
+
+@foreach (Game game in Model)
+{
+	@Html.ActionLink(game.Title, "subject/" + game.Id)	
+	<p>@game.ReleaseDate</p>
+	<p>@game.Developer</p>
+	<ul>
+	@foreach (Genre genre in game.Genres)
+	{
+		<li>@genre.Name</li>
+	}
+	</ul>
+	<hr />
+}

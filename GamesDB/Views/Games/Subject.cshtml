@@ -1,0 +1,97 @@
+﻿@model GamesDB.Models.Game
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<style>
+	.info {
+		margin: auto;
+		width: 60%;
+		padding: 10px;
+	}
+
+	#title {
+		margin-top: 5%;
+		text-align: center;
+		font-size: 30px;
+	}
+	
+	.game div {
+		display: inline-block;
+	}
+
+	.gameInfo {
+		margin-left: 5%;
+		vertical-align: top;
+	}
+
+	#pic {
+		width: 200px;
+	}
+
+	.ratesection {
+		vertical-align: top;
+		margin-left: 10%;
+	}
+
+	input[type="text"] {
+		width: 100px;
+	}
+
+	input[type="button"] {
+		width: 40px;
+	}
+
+</style>
+
+<div class="info">
+	<p id="title">@Model.Title</p>
+	<div class="game">
+		<div>
+			<img src="asd" id="pic" />
+		</div>
+		<div class="gameInfo">
+			<p>@Model.ReleaseDate.ToLongDateString()</p>
+			<p>
+				<label>Genres</label>
+				<ul>
+				@foreach (var g in Model.Genres)
+				{
+					<li>@g.Name</li>
+				}
+				</ul>
+			</p>
+			<p>
+				<label>Platforms</label>
+				<ul>
+					@foreach (var p in Model.Platforms)
+					{
+						<li>@p.Name</li>
+					}
+				</ul>
+			</p>
+		</div>
+		<div class="ratesection">
+			<label>Rate this game: </label> <br />
+			<input id="mark" type="text" />
+			<input id="mark-confirmation" type="button" value="Ok" />
+		</div>
+	</div>
+</div>
+
+@section scripts {
+	<script type="text/javascript">
+		$("#mark-confirmation").click(function () {
+			$mark = $("#mark").val();
+
+			if (Number.isInteger(parseInt($mark))) {
+				if ($mark < 0 || $mark > 10)
+					alert("Mark should be between 0 and 10");
+			}
+			else {
+				alert("Incorrect value (should be a number)");
+			}
+		})
+	</script>
+}

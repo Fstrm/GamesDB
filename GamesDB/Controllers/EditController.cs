@@ -5,8 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using GamesDB.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Data.Entity;
 
 namespace GamesDB.Controllers
 {
@@ -17,14 +16,19 @@ namespace GamesDB.Controllers
 		[HttpPost]
 		public void CreateGame([FromBody]Game game)
 		{
+			if(db.Developers.Any(d => d.Name == game.Developer.Name))
+			{
+				db.Entry(game.Developer).State = EntityState.Unchanged;
+			}
+
 			foreach (var g in game.Genres)
 			{
-				db.Entry(g).State = System.Data.Entity.EntityState.Unchanged;
+				db.Entry(g).State = EntityState.Unchanged;
 			}
 			
 			foreach (var p in game.Platforms)
 			{
-				db.Entry(p).State = System.Data.Entity.EntityState.Unchanged;
+				db.Entry(p).State = EntityState.Unchanged;
 			}
 
 			db.Games.Add(game);

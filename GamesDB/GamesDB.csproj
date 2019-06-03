@@ -201,9 +201,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Test.cshtml" />
-    <Content Include="Views\Games\Users.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Shared\Date.cshtml" />
+    <Content Include="Views\Games\Subject.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
