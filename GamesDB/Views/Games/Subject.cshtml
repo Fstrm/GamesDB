@@ -78,6 +78,9 @@
 					$.ajax({
 						url: "/api/user?gameid=" + $("#game-id").val() + "&user=" + localStorage["user"] + "&userScore=" + $mark,
 						type: "PUT",
+						beforeSend: function (xhr) {
+							xhr.setRequestHeader("Auth", localStorage.getItem("token"));
+						},
 						contentType: "application/json;charset=utf-8",
 						success: function (data) {
 							alert("Your mark has been submitted");

@@ -1,6 +1,14 @@
 ﻿#games {
 	padding: 20px;
 	text-align: center;
+	margin: 0 auto;
+}
+
+.game-link {
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+	color: dodgerblue;
 }
 
 table td {
@@ -9,4 +17,5 @@ table td {
 
 ul li {
 	display: inline;
+	margin-right: 2%;
 }

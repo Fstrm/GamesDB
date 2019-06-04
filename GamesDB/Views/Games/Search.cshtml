@@ -1,0 +1,16 @@
+﻿@model IEnumerable<GamesDB.Models.Game>
+@{
+    ViewBag.Title = "View";
+}
+
+@section styles {
+	<link href="~/Content/mainPage.css" rel="stylesheet" />
+}
+
+<div style="padding: 10px;">
+@foreach (var g in Model)
+{
+	@Html.ActionLink(g.Title, "Subject", new { g.Id})<br />
+}
+</div>
+

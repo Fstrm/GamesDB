@@ -13,7 +13,7 @@
 			@Html.ActionLink("GamesDB", "", null, new { @id = "logo" })
 			<div id="search-panel">
 				<input type="text" id="search-field" placeholder="Search" />
-				<button id="search-button">Go!</button>
+				<a id="search-link" href=""></a>
 			</div>
 			
 			<div id="auth">
@@ -60,5 +60,17 @@
 	@RenderSection("scripts", required: false)
 	@RenderSection("styles", required: false)
 	<script src="~/Scripts/auth.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			
+			$("#search-field").keydown(function (e) {
+				if (e.keyCode == 13) {
+					$("#search-link").attr("href", "/Games/Search?name=" + $("#search-field").val());
+						window.location = $("#search-link").attr("href");
+					$("#search-link").click();
+				}
+			});
+		});
+	</script>
 </body>
 </html>

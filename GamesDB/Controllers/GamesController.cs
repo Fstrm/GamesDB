@@ -34,5 +34,11 @@ namespace GamesDB.Controllers
 
 			return View(game);
 		}
+
+		public ActionResult Search(string name)
+		{
+			var games = db.Games.Where(g => g.Title.Contains(name));
+			return View(games);
+		}
 	}
 }

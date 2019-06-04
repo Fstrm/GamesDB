@@ -210,6 +210,7 @@
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Shared\Date.cshtml" />
     <Content Include="Views\Games\Subject.cshtml" />
+    <Content Include="Views\Games\Search.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

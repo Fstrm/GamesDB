@@ -18,20 +18,24 @@ namespace GamesDB.Controllers
 			using (GameContext db = new GameContext())
 			{
 				Mark userMark = db.Marks.FirstOrDefault(m => m.GameId == gameId && m.User.Username == user);
+				bool exists;
 				if (userMark != null)
 				{
 					userMark.Score = userScore;
 					db.Entry(userMark).State = EntityState.Modified;
+					exists = true;
 				}
 				else
 				{
 					userMark = new Mark { GameId = gameId, User = db.Users.FirstOrDefault(u => u.Username == user), Score = userScore };
+					exists = false;
 				}
 					 
 				Game rated = db.Games.Include("Developer").Where(g => g.Id == gameId).FirstOrDefault();
 				if (rated != null)
 				{
-					rated.VoiceCounter++;
+					if (!exists)
+						rated.VoiceCounter++;
 					rated.Score += (userScore - rated.Score) / rated.VoiceCounter;
 					db.Entry(rated).State = EntityState.Modified;
 				}
@@ -39,6 +43,16 @@ namespace GamesDB.Controllers
 				db.Marks.Add(userMark);
 				db.SaveChanges();
 				return rated.Score;
+			}
+		}
+
+		[HttpGet]
+		public IEnumerable<Game> FindGames(string keyword)
+		{
+			using (GameContext db = new GameContext())
+			{
+				var games = db.Games.Where(g => g.Title.Contains(keyword));
+				return games;
 			}
 		}
     }

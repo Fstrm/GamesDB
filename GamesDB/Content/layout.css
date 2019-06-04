@@ -31,10 +31,8 @@ header::after {
 	font-style: italic;
 }
 
-#search-panel button {
-	width: 30px;
-	height: 28px;
-	padding: 3px;
+#search-link {
+	display: none;
 }
 
 #login,
