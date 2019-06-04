@@ -12,6 +12,7 @@ namespace GamesDB.Controllers
     public class UserController : ApiController
     {
 		[HttpPut]
+		[Filters.ApiAuthorize]
 		public int? InsertUserMark(int gameId, string user, int userScore)
 		{
 			using (GameContext db = new GameContext())

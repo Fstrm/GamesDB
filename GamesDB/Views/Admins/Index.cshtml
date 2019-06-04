@@ -91,15 +91,19 @@
 			game.Initialize();
 
 			$.ajax({
-				url: '/api/edit/',
-				type: "post",
+				url: "/api/edit/",
+				beforeSend: function (xhr) {
+					xhr.setRequestHeader("Auth", localStorage.getItem("token"));
+				},
+				dataType: "html",
+				type: "POST",
 				data: JSON.stringify(game),
 				contentType: "application/json;charset=utf-8",
-				succes: function (data) {
-					console.log(data);
+				success: function (data) {
+					alert("The game has been added");
 				},
-				error: function (data) {
-					console.log(data);
+				error: function (a, b, error) {
+					alert(error);
 				}
 			});
 		});
@@ -122,7 +126,6 @@
 			$("#genres").children("option:selected").each(function () {
 				genres.push({ "Id": $(this).attr("data-id"), "Name": this.value });
 			});
-			console.log(genres);
 			this.genres = genres;
 
 			var platforms = [];

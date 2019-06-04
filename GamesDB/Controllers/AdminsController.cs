@@ -11,6 +11,7 @@ namespace GamesDB.Controllers
     {
 		private GameContext db = new GameContext();
 
+		[Filters.MvcAdminAuthorize]
         public ActionResult Index()
         {
 			ViewBag.Genres = db.Genres.ToList();

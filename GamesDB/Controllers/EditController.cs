@@ -14,6 +14,7 @@ namespace GamesDB.Controllers
 		private GameContext db = new GameContext();
 
 		[HttpPost]
+		[Filters.AdminAuthorize]
 		public void CreateGame([FromBody]Game game)
 		{
 			foreach (var g in game.Genres)

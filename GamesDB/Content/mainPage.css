@@ -1,0 +1,12 @@
+﻿#games {
+	padding: 20px;
+	text-align: center;
+}
+
+table td {
+	width: 250px;
+}
+
+ul li {
+	display: inline;
+}

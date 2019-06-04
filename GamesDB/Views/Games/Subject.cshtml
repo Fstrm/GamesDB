@@ -12,7 +12,7 @@
 	<p id="title">@Model.Title</p>
 	<div class="game">
 		<div>
-			<img src="asd" id="pic" />
+			<img src="@Model.Picture" id="pic" />
 		</div>
 		<div class="gameInfo">
 			<input id="game-id" type="hidden" value="@Model.Id" />
@@ -83,6 +83,7 @@
 							alert("Your mark has been submitted");
 							$("#user-mark").css("display", "hidden");
 							$("#score-hidden").val(data);
+							$("#user-mark").css("display", "none");
 							refreshScore();
 						},
 						error: function (data) {

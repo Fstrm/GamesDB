@@ -146,6 +146,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
+    <Compile Include="Filters\MvcAdminAuthorizeAttribute.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Validators\AdminValidator.cs" />
     <Compile Include="Filters\ApiAuthorizeAttribute.cs" />
@@ -177,6 +178,7 @@
     <Content Include="Content\create-page.css" />
     <Content Include="Content\game-info.css" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\mainPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -40,7 +40,7 @@ $("#signup-button").click(function () {
 		};
 
 		$.ajax({
-			url: "api/Register?username=" + user.name + "&password=" + user.password,
+			url: "/api/Register?username=" + user.name + "&password=" + user.password,
 			type: "GET",
 			success: function (data) {
 				localStorage.setItem("token", data);
@@ -72,7 +72,7 @@ $("#login-button").click(function () {
 	}
 
 	$.ajax({
-		url: "api/Login?login=" + user.login + "&password=" + user.password,
+		url: "/api/Login?login=" + user.login + "&password=" + user.password,
 		type: "GET",
 		success: function (data) {
 			localStorage.setItem("token", data);

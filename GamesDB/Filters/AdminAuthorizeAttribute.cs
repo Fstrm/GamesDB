@@ -18,7 +18,7 @@ namespace GamesDB.Filters
 		{
 			string token = actionContext.Request.Headers.GetValues("Auth").FirstOrDefault();
 			Validator val = new AdminValidator(token);
-			if (val.IsCorrect())
+			if (!val.IsCorrect())
 			{
 				return continuation();
 			}
