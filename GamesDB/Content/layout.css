@@ -18,28 +18,20 @@ header::after {
 	clear: both;
 }
 
-#logo {
-	overflow: hidden;
-	margin: 0 20px 0 0;
-	padding: 7px;
-	color: white;
-	float: left;
-	text-decoration: none;
-}
-
-#searchPanel {
+#search-panel {
 	display: inline-block;
-	float: left;
+	text-align: left;
+	max-width: 200px;
 }
 
-#searchPanel input {
+#search-panel input {
 	margin-top: 7px;
 	margin-bottom: 6px;
 	padding: 3px;
 	font-style: italic;
 }
 
-#searchPanel button {
+#search-panel button {
 	width: 30px;
 	height: 28px;
 	padding: 3px;
@@ -55,8 +47,18 @@ header::after {
 }
 
 /*anchors*/
-#loginTrigger,
-#signupTrigger {
+#logo {
+	overflow: hidden;
+	margin: 2px 20px 0 0;
+	padding: 7px;
+	color: white;
+	float: left;
+	text-decoration: none;
+}
+
+#signup-trigger,
+#login-trigger,
+#logout-trigger {
 	display: inline-block;
 	height: 27px;
 	line-height: 25px;
@@ -65,6 +67,11 @@ header::after {
 	text-decoration: none;
 	background: #262626;
 	color: #FF652F;
+	cursor: pointer;
+}
+
+#logout {
+	display: none;
 }
 
 #back {
@@ -75,7 +82,7 @@ header::after {
 }
 /**/
 
-#loginBlock {
+#login-block {
 	padding: 10px;
 	margin: 0 10px 0 10px;
 	max-width: 100px;
@@ -83,7 +90,7 @@ header::after {
 	background-color: white;
 }
 
-#loginForm {
+#login-form {
 	display: none;
 	position: absolute;
 	z-index: 999;
@@ -94,12 +101,12 @@ header::after {
 	width: 180px;
 }
 
-#loggedUser {
+#logged-user {
 	display: none;
 	color: red;
 }
 
-#signupModal{
+#signup-modal{
 	top: 0;
 	left: 0;
 	position: fixed;
@@ -109,27 +116,24 @@ header::after {
 	display: none;
 }
 
-#errorBlock {
+#error-block {
 	color: red;
 	font-size: 16px;
 }
 
-#signupForm {
-	margin-top: 20%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: auto;
+#signup-form {
+	margin: 20%, auto, auto, auto;
 	height: 100px;
 	width: 400px;
 }
 
 /*inputs*/
-#loginInputs {
+#login-inputs {
 	padding: 10px;
 	border: 2px solid #FF652F;
 }
 
-#signupInputs
+#signup-inputs
 {
 	top: 0;
 	right: 0;
@@ -144,21 +148,21 @@ input {
 	font-style: italic;
 }
 
-#loginPassword {
+#login-password {
 	margin-top: 5px;
 }
 
-#confirmPassword {
+#confirm-password {
 	margin-top: 5px;
 }
 
-#loginButton {
+#login-button {
 	background: white;
 	margin-top: 5px;
 }
 /**/
 
-#loginTrigger:hover,
-#signupTrigger:hover{
+#login-trigger:hover,
+#signup-trigger:hover{
 	background-color: white;
 }

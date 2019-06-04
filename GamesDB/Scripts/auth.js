@@ -11,39 +11,44 @@
 	}
 });
 
-$("#loginTrigger").click(function () {
-	$("#loginForm").slideToggle();
+$("#login-trigger").click(function () {
+	$("#login-form").slideToggle();
 });
 
-$("#signupTrigger").click(function () {
-	$("#signupModal").toggle();
+$("#logout-trigger").click(function () {
+	localStorage.removeItem("user");
+	localStorage.removeItem("token");
+	location.reload();
+})
+
+$("#signup-trigger").click(function () {
+	$("#signup-modal").toggle();
 });
 
 $("#back").click(function () {
-	$("#signupModal").hide();
+	$("#signup-modal").hide();
 });
 
-$("#signupButton").click(function () {
-	var username = $("#signupUserName").val();
-	var password = $("#signupPassword").val();
-	var confirmPassword = $("#confirmPasswrod").val();
+$("#signup-button").click(function () {
+	var username = $("#signup-username").val();
+	var password = $("#signup-password").val();
 
-	if (username && password && password == $("#confirmPassword").val()) {
+	if (username && password && password == $("#confirm-password").val()) {
 		var user = {
 			name: username,
 			password: password
 		};
 
 		$.ajax({
-			url: 'api/Register?username=' + user.name + "&password=" + user.password,
-			type: 'GET',
+			url: "api/Register?username=" + user.name + "&password=" + user.password,
+			type: "GET",
 			success: function (data) {
 				localStorage.setItem("token", data);
 				localStorage.setItem("user", username);
 				console.log(localStorage["user"]);
 				console.log(localStorage["token"]);
 				$("#signup").hide();
-				$("#signupModal").remove();
+				$("#signup-modal").remove();
 				SetName();
 			},
 			error: function (data) {
@@ -51,30 +56,30 @@ $("#signupButton").click(function () {
 			}
 		})
 	}
-	else if (password && password != $("confirmPassword").val()) {
-		$("#errorBlock").text("passwords don't match");
+	else if (password && password != $("confirm-password").val()) {
+		$("#error-block").text("passwords don't match");
 	}
 	else {
-		$("#errorBlock").text("Some fields are empty");
+		$("#error-block").text("Some fields are empty");
 	}
 });
 
-$("#loginButton").click(function () {
+$("#login-button").click(function () {
 
 	var user = {
-		login: $("#loginUserName").val(),
-		password: $("#loginPassword").val(),
+		login: $("#login-username").val(),
+		password: $("#login-password").val(),
 	}
 
 	$.ajax({
-		url: 'api/Login?login=' + user.login + "&password=" + user.password,
-		type: 'GET',
+		url: "api/Login?login=" + user.login + "&password=" + user.password,
+		type: "GET",
 		success: function (data) {
 			localStorage.setItem("token", data);
 			localStorage.setItem("user", user.login);
-			$("#loginForm").toggle();
+			$("#login-form").toggle();
 			$("#signup").hide();
-			$("signupModal").remove();
+			$("signup-modal").remove();
 			SetName();
 		},
 		error: function (error) {
@@ -84,6 +89,8 @@ $("#loginButton").click(function () {
 });
 
 var SetName = function () {
-	$("#loginTrigger").text(localStorage.getItem("user"));
-	$("#signup").toggle();
+	$("#login-trigger").text(localStorage.getItem("user"));
+	$("#signup").hide();
+	$("#login-inputs").hide();
+	$("#logout-trigger").show();
 }

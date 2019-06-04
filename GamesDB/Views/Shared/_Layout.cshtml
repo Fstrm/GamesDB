@@ -11,27 +11,28 @@
 	<header>
 		<div class="container">
 			@Html.ActionLink("GamesDB", "", null, new { @id = "logo" })
-			<div id="searchPanel">
-				<input type="text" id="searchField" placeholder="Search" />
-				<button id="searchButton">Go!</button>
+			<div id="search-panel">
+				<input type="text" id="search-field" placeholder="Search" />
+				<button id="search-button">Go!</button>
 			</div>
 			
 			<div id="auth">
 				<div id="login">
-					<a class="trigger" id="loginTrigger" href="#">
+					<a id="login-trigger" href="#">
 						Log in
 					</a>
-					<div id="loginForm">
-						<div id="loginInputs">
-							<input id="loginUserName" type="text" placeholder="Name" />
-							<input id="loginPassword" type="Password" placeholder="Password" />
-							<button id="loginButton" value="Log in">Log in </button>
+					<div id="login-form">
+						<div id="login-inputs">
+							<input id="login-username" type="text" placeholder="Name" />
+							<input id="login-password" type="Password" placeholder="Password" />
+							<button id="login-button">Log in </button>
 						</div>
+						<a id="logout-trigger">Logout</a>
 					</div>
 				</div>
 
 				<div id="signup">
-					<a class="trigger" id="signupTrigger" href="#">
+					<a id="signup-trigger">
 						Sign Up
 					</a>
 				</div>
@@ -40,14 +41,14 @@
 	</header>
 
 	<div id="main">
-		<div id="signupModal">
-			<div id="signupForm">
-				<div id="signupInputs">
-					<div id="errorBlock"></div>
-					<input id="signupUserName" type="text" placeholder="Name" /> <br />
-					<input id="signupPassword" type="password" placeholder="Password" /> <br />
-					<input id="confirmPassword" type="password" placeholder="Confirm Password" /> <br />
-					<button id="signupButton">Sign Up</button>
+		<div id="signup-modal">
+			<div id="signup-form">
+				<div id="signup-inputs">
+					<div id="error-block"></div>
+					<input id="signup-username" type="text" placeholder="Name" /> <br />
+					<input id="signup-password" type="password" placeholder="Password" /> <br />
+					<input id="confirm-password" type="password" placeholder="Confirm Password" /> <br />
+					<button id="signup-button">Sign Up</button>
 					<a id="back">Back</a>
 				</div>
 			</div>
