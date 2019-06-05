@@ -36,5 +36,15 @@ namespace GamesDB.Controllers
 
 			return null;
 		}
-    }
+
+		[Route("api/Login")]
+		public string GetUserToken(string login, string password)
+		{
+			if (!String.IsNullOrEmpty(login) && !String.IsNullOrEmpty(password))
+			{
+				return db.Users.FirstOrDefault(u => u.Username == login && u.Password == password)?.Token;
+			}
+			return null;
+		}
+	}
 }
