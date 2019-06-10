@@ -11,10 +11,34 @@ namespace GamesDB.Controllers
 	public class GamesController : Controller
 	{
 		private GameContext db = new GameContext();
-		
+		private List<string> options = new List<string>
+		{
+			"-Sort-by-",
+			"Recent",
+			"Name"
+		};
+
+
 		public ActionResult Index()
 		{
+			ViewBag.Options = new SelectList(options);
 			return View(db.Games.Include("Developer").ToList());
+		}
+
+		public ActionResult GamesBlock(string filter)
+		{
+			IEnumerable<Game> filteredSet = db.Games.Include("Developer");
+			
+			if (filter == "Recent")
+			{
+				filteredSet = filteredSet.OrderBy(g => g.ReleaseDate);
+			}
+			else if (filter == "Name")
+			{
+				filteredSet = filteredSet.OrderBy(g => g.Title);
+			}
+
+			return PartialView(filteredSet.ToList());
 		}
 
 		public ActionResult Subject(int? id)

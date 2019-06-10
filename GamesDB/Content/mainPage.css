@@ -4,6 +4,10 @@
 	margin: 0 auto;
 }
 
+#filter-section {
+	display: inline-block;
+}
+
 .game-link {
 	font-weight: bold;
 	text-decoration: none;

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GamesDB.Models.Game>
+
+<table id="games">
+	<tr>
+		<th>Title</th>
+		<th>Release Date</th>
+		<th>Developer</th>
+		<th>Platforms</th>
+	</tr>
+	@foreach (var game in Model)
+	{
+		<tr>
+			<td>@Html.ActionLink(game.Title, "subject/" + game.Id, null, new { @class = "game-link" })</td>
+			<td>@game.ReleaseDate.ToLongDateString()</td>
+			<td>@game.Developer.Name</td>
+			<td>
+				<ul>
+					@foreach (var p in game.Platforms)
+					{
+						<li>@p.Name</li>
+					}
+				</ul>
+			</td>
+		</tr>
+	}
+</table>
